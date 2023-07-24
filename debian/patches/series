@@ -1,0 +1,4 @@
+0001-Add-gettext-requirement-to-configure.ac.patch
+0002-Exclude-some-docs-from-install.patch
+fix_poppler_20_api_change.diff
+fix_poppler_21_api_change.diff

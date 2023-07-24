@@ -1,5 +1,77 @@
-template-repository (1.0-1) unstable; urgency=medium
+extractpdfmark (1.1.1-1) unstable; urgency=medium
 
-  * Initial release
+  * New upstream version 1.1.1
+    - Refresh patches
+  * Acknowledge last two NMUs. Thanks!
+  * Add gbp.conf
+  * Update d/copyright
+  * Use debhelper v13
+  * Update Standards-Version to 4.6.1, no changes needed
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Sun, 06 Nov 2022 17:09:38 +0100
+
+extractpdfmark (1.1.0-1.2) unstable; urgency=medium
+
+  Non-maintainer upload.
+
+  [ Jeremy Bicha ]
+  * Build-Depend on libpoppler-cpp-dev instead of libpoppler-dev
+    - Fixes build with poppler 22
+
+  [ Rico Tzschichholz ]
+  * Add patch to fix build with Poppler 21.11
+
+ -- Jeremy Bicha <jeremy.bicha@canonical.com>  Mon, 07 Feb 2022 14:53:19 -0500
+
+extractpdfmark (1.1.0-1.1) unstable; urgency=high
+
+  * Non-maintainer upload.
+  * Fix FTBFS with poppler 0.85 (Closes: #968714). 
+
+ -- Francois Mazen <francois@mzf.fr>  Sun, 13 Sep 2020 22:28:49 +0200
+
+extractpdfmark (1.1.0-1) unstable; urgency=medium
+
+  * New upstream version 1.1.0
+    - Refresh patches
+  * Update d/copyright
+  * Switch to debhelper-compat and use v12
+  * Update Standards-Version to 4.4.0, no changes needed
+  * Apply fixes from cme fix dpkg
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Wed, 28 Aug 2019 23:55:09 +0200
+
+extractpdfmark (1.0.3-1) unstable; urgency=medium
+
+  * New upstream version 1.0.3
+    - Refresh patches
+  * Update Standards-Version to 4.2.1, no changes needed
+  * Update d/copyright
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Mon, 17 Dec 2018 09:37:37 +0100
+
+extractpdfmark (1.0.2-2) unstable; urgency=medium
+
+  * Use debhelper v11
+  * Update d/copyright
+  * Switch Vcs-URLs to salsa.d.o
+  * Update Standards-Version to 4.1.3, no changes needed
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Tue, 23 Jan 2018 14:27:45 +0100
+
+extractpdfmark (1.0.2-1) unstable; urgency=medium
+
+  * New upstream version 1.0.2
+    - Remove Debian's manpage, has been included upstream
+    - Refresh patches
+  * Remove explicit dh-autoreconf call, is default with dh v10 anyway
+  * Update d/copyright
+  * Update Standards-Version to 4.0.0
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Fri, 23 Jun 2017 21:48:18 +0200
+
+extractpdfmark (1.0.1-1) unstable; urgency=medium
+
+  * Initial release (Closes: #847781)
+
+ -- Dr. Tobias Quathamer <toddy@debian.org>  Sun, 11 Dec 2016 14:16:54 +0100

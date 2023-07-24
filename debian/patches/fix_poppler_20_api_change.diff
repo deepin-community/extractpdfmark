@@ -1,0 +1,38 @@
+From: Francois Mazen <francois@mzf.fr>
+Date: Sun, 13 Sep 2020 22:28:46 +0100
+Subject: Fix poppler 20 API change
+
+---
+ src/poppler-core/destname.cc | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/poppler-core/destname.cc b/src/poppler-core/destname.cc
+index 33e05e2..b6e32c4 100644
+--- a/src/poppler-core/destname.cc
++++ b/src/poppler-core/destname.cc
+@@ -82,7 +82,7 @@ std::string poppler_core::build_destname (const std::string &name,
+       if (link_dest->isPageRef ())
+         {
+           Ref page_ref = link_dest->getPageRef ();
+-          pagenum = doc->findPage (page_ref.num, page_ref.gen);
++          pagenum = doc->findPage (page_ref);
+         }
+       else
+         {
+@@ -189,14 +189,14 @@ std::string poppler_core::destname (void)
+       for (int i=0; i<len; ++i)
+         {
+           add_destname (catalog->getDestNameTreeName (i),
+-                        catalog->getDestNameTreeDest (i));
++                        catalog->getDestNameTreeDest (i).get());
+         }
+ 
+       len = catalog->numDests ();
+       for (int i=0; i<len; ++i)
+         {
+           add_destname (catalog->getDestsName (i),
+-                        catalog->getDestsDest (i));
++                        catalog->getDestsDest (i).get());
+         }
+     }
+   else
