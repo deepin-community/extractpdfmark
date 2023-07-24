@@ -1,4 +1,12 @@
 #!/usr/bin/make -f
 
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
 %:
 	dh $@
+
+# This override is needed because otherwise the build will fail
+# with "error: required file './config.rpath' not found"
+override_dh_update_autotools_config:
+	autopoint --force
+	dh_update_autotools_config

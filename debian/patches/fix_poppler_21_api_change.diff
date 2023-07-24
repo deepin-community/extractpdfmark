@@ -1,0 +1,55 @@
+From: Rico Tzschichholz <ricotz@ubuntu.com>
+Date: Fri, 12 Nov 2021 09:16:21 +0100
+Subject: Fix poppler 21 API change
+
+===================================================================
+---
+ src/poppler-core/destname.cc     | 6 +++---
+ src/poppler-core/poppler-core.hh | 4 ++--
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/src/poppler-core/destname.cc b/src/poppler-core/destname.cc
+index b6e32c4..4e4b0df 100644
+--- a/src/poppler-core/destname.cc
++++ b/src/poppler-core/destname.cc
+@@ -30,7 +30,7 @@
+ #include "destname-private.hh"
+ #endif
+ 
+-inline std::string goo_to_string (GooString *goo)
++inline std::string goo_to_string (const GooString *goo)
+ {
+   return std::string {
+ #ifdef HAS_GOOSTRING_C_STR
+@@ -41,14 +41,14 @@ inline std::string goo_to_string (GooString *goo)
+       static_cast<std::string::size_type>(goo->getLength ())};
+ }
+ 
+-inline void poppler_core::add_destname (GooString *name,
++inline void poppler_core::add_destname (const GooString *name,
+                                         LinkDest *link_dest)
+ {
+   std::string str = goo_to_string (name);
+   add_destname (str, link_dest);
+ }
+ 
+-inline void poppler_core::add_destname (GooString *name)
++inline void poppler_core::add_destname (const GooString *name)
+ {
+   std::string str = goo_to_string (name);
+   std::unique_ptr<LinkDest> link_dest {doc->findDest (name)};
+diff --git a/src/poppler-core/poppler-core.hh b/src/poppler-core/poppler-core.hh
+index 303210c..f550aa9 100644
+--- a/src/poppler-core/poppler-core.hh
++++ b/src/poppler-core/poppler-core.hh
+@@ -39,8 +39,8 @@ private:
+   std::string build_destname (const std::string &name, LinkDest *link_dest);
+   std::string build_destnames (void);
+   void add_destname (const std::string &name, LinkDest *link_dest);
+-  void add_destname (GooString *name, LinkDest *link_dest);
+-  void add_destname (GooString *name);
++  void add_destname (const GooString *name, LinkDest *link_dest);
++  void add_destname (const GooString *name);
+   void add_destname (const char *name);
+ 
+   std::unique_ptr<PDFDoc> doc;

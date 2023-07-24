@@ -1,0 +1,20 @@
+From: "Dr. Tobias Quathamer" <toddy@debian.org>
+Date: Sun, 11 Dec 2016 23:44:36 +0100
+Subject: Exclude some docs from install
+
+---
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index a302a69..63492d4 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,6 +1,6 @@
+ SUBDIRS = src man test
+ 
+-dist_doc_DATA = README.md README.ja.md COPYING NEWS
++dist_doc_DATA = README.md NEWS
+ EXTRA_DIST = autogen.sh
+ 
+ ACLOCAL_AMFLAGS = -I m4

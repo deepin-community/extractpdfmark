@@ -1,0 +1,22 @@
+From: "Dr. Tobias Quathamer" <toddy@debian.org>
+Date: Sun, 11 Dec 2016 23:05:48 +0100
+Subject: Add gettext requirement to configure.ac
+
+---
+ configure.ac | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/configure.ac b/configure.ac
+index 2e7d562..6cdbdf4 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -24,6 +24,9 @@ AX_CXX_COMPILE_STDCXX_11([noext], [mandatory])
+ AC_PROG_RANLIB
+ AC_PROG_GREP
+ 
++AM_GNU_GETTEXT_REQUIRE_VERSION([0.19.6])
++AM_GNU_GETTEXT([external])
++
+ AC_PATH_PROG([DIFF], [diff])
+ AS_IF([test "x$DIFF" = x],
+       [AC_MSG_WARN([diff isn't found. `make check' will skip tests.])])

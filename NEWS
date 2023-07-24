@@ -1,0 +1,23 @@
+Release 1.1.1 (2022-09-30):
+        Fix handling a named destination with an empty string name
+        https://github.com/trueroad/extractpdfmark/issues/3
+
+        Exclude deprecated poppler-core interface for poppler 0.76+
+
+        Add stable poppler-glib interface for poppler 0.78.0+
+
+Release 1.1.0 (2019-02-11):
+        Add stable poppler-cpp interface for poppler 0.74.0+
+
+Release 1.0.3 (2018-12-09):
+        Support poppler 0.72.0
+
+Release 1.0.2 (2017-04-17):
+        Add manpage
+        Improve README
+
+Release 1.0.1 (2016-10-23):
+        Add GCC 4.8.x support
+
+Release 1.0.0 (2016-10-10):
+        Initial release
